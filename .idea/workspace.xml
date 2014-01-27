@@ -38,7 +38,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/recognizer/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="38" selection-start="633" selection-end="633" vertical-scroll-proportion="0.478424" vertical-offset="153" max-vertical-offset="2380">
+            <state line="27" column="22" selection-start="725" selection-end="725" vertical-scroll-proportion="0.64915574" vertical-offset="113" max-vertical-offset="2397">
               <folding />
             </state>
           </provider>
@@ -779,7 +779,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/recognizer/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="38" selection-start="633" selection-end="633" vertical-scroll-proportion="0.478424" vertical-offset="153" max-vertical-offset="2380">
+        <state line="27" column="22" selection-start="725" selection-end="725" vertical-scroll-proportion="0.64915574" vertical-offset="113" max-vertical-offset="2397">
           <folding />
         </state>
       </provider>
