@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DigitsRecognizer</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+  </script>
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+      canvas {
+          border: 1px solid #ccc;
+          margin: 0px;
+          padding: 0px;}
+      #canvasDiv {
+          text-align: center;}
+      body {
+          align: center;
+          margin: 0px;
+          padding: 0px;
+      }
+  </style>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
