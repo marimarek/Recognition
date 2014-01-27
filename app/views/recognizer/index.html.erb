@@ -3,7 +3,7 @@
   <br/>
   <canvas id="canvas" width=200 height=200></canvas>
   <br/>
-  <button id="clear">Clear Canvas</button>
+  <button id="clear">Clear</button>
   <button id="send">Send</button>
   <br/>
   <%for i in 0..9 %>
@@ -17,31 +17,30 @@
 
     var canvas;
     var context;
-    var clickX = new Array();
-    var clickY = new Array();
-    var clickDrag = new Array();
     var paint;
 
     $(function () {
         canvas = document.getElementById("canvas");
         context = canvas.getContext("2d");
+        context.strokeStyle = "#000000";
+        context.lineJoin = "round";
+        context.lineWidth = 8;
+        context.beginPath();
+        paint = false;
 
         for(var i = 0; i < 10; ++i)
             drawNumber(i, 1.0);
 
         $('#canvas').mousedown(function(e){
-            var mouseX = e.pageX - this.offsetLeft;
-            var mouseY = e.pageY - this.offsetTop;
-
             paint = true;
-            addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-            redraw();
+            context.moveTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+            context.stroke();
         });
 
         $('#canvas').mousemove(function(e){
             if(paint){
-                addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
-                redraw();
+                context.lineTo(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+                context.stroke();
             }
         });
 
@@ -55,10 +54,9 @@
 
         $('#clear').mousedown(function(e)
         {
-            clickX = new Array();
-            clickY = new Array();
-            clickDrag = new Array();
+            context.closePath();
             clearCanvas();
+            context.beginPath();
         });
 
         $('#send').mousedown(function(e)
@@ -128,36 +126,10 @@
         contextN.fillText(n.toString(),x,y);
     }
 
-    function addClick(x, y, dragging)
-    {
-        clickX.push(x);
-        clickY.push(y);
-        clickDrag.push(dragging);
-    }
-
     function clearCanvas()
     {
         context.fillStyle="#ffffff";
         context.fillRect(0, 0, canvas.getAttribute('width'), canvas.getAttribute('height'));
     }
 
-    function redraw(){
-        clearCanvas(); // Clears the canvas
-
-        context.strokeStyle = "#000000";
-        context.lineJoin = "round";
-        context.lineWidth = 8;
-
-        for(var i=0; i < clickX.length; i++) {
-            context.beginPath();
-            if(clickDrag[i] && i){
-                context.moveTo(clickX[i-1], clickY[i-1]);
-            }else{
-                context.moveTo(clickX[i]-1, clickY[i]);
-            }
-            context.lineTo(clickX[i], clickY[i]);
-            context.closePath();
-            context.stroke();
-        }
-    }
 </script>
