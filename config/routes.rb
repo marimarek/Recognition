@@ -1,6 +1,6 @@
 DigitsRecognizer::Application.routes.draw do
-  get "recognizer/index"
-  post "recognizer/test"
+  root "recognizer#index"
+  post "recognizer/recognize"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

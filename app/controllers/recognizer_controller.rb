@@ -7,7 +7,7 @@ class RecognizerController < ApplicationController
   def index
   end
 
-  def test
+  def recognize
     pixels = params[:pixels]
 
     data = Array.new(32)
