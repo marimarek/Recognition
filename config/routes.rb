@@ -1,12 +1,17 @@
 DigitsRecognizer::Application.routes.draw do
 
-  resources :users
+  resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :digits, only: [:history, :show, :delete, :mark]
 
   root "recognizer#index"
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/history',  to: 'digits#history',      via: 'get'
+  match '/digit',  to: 'digits#show',           via: 'get'
+  match '/digit/delete', to: 'digits#delete',   via: 'delete'
+  match '/mark', to: 'digits#mark',             via: 'get'
   post "recognizer/recognize"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

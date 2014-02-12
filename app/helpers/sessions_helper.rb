@@ -17,4 +17,10 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def signed_in_only!
+    if !signed_in?
+      redirect_to root_path
+    end
+  end
+
 end

@@ -84,7 +84,7 @@ $(function () {
         $.ajax({
             type:  'post',
             url:  'recognizer/recognize',
-            data:  {pixels: pixels},
+            data:  {pixels: pixels, data_uri: scaleCanvas.toDataURL('image/png')},
             dataType: 'json',
             success: function(resp) {
                 for(var i = 0; i < 10; ++i)
@@ -126,4 +126,16 @@ function clearCanvas()
 {
     context.fillStyle="#ffffff";
     context.fillRect(0, 0, canvas.getAttribute('width'), canvas.getAttribute('height'));
+}
+
+
+function addCanvasImage(fileUrl) {
+    var can = document.getElementById("showCanvas");
+    var ctx = can.getContext("2d");
+    var img = new Image();
+    img.src = fileUrl;
+    ctx.font='60pt Calibri';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText("5", 20, 20);
 }
