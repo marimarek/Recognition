@@ -1,6 +1,7 @@
 <div id="canvasDiv" onload="window.alert('dsfd');">
   <canvas id="showCanvas" width=80 height=80></canvas>
+  <%= image_tag(@digit.url) %>
 </div>
 <script>
-    addCanvasImage("<%= @digit.url %>");
+    addCanvasImage("<%= "/assets/" + @digit.url %>");
 </script>

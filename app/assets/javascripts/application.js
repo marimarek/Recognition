@@ -133,9 +133,9 @@ function addCanvasImage(fileUrl) {
     var can = document.getElementById("showCanvas");
     var ctx = can.getContext("2d");
     var img = new Image();
+
+    img.onload = function() {
+        ctx.drawImage(img, 0, 0);
+    };
     img.src = fileUrl;
-    ctx.font='60pt Calibri';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText("5", 20, 20);
 }

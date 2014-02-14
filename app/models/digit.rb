@@ -12,6 +12,6 @@ class Digit < ActiveRecord::Base
   end
 
   def url
-    "#{Rails.root}/public/uploads/" + user_id.to_s + "/" + id.to_s + ".png"
+    "digits/" + user_id.to_s + "/" + id.to_s + ".png"
   end
 end

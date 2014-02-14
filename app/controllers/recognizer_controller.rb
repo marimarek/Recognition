@@ -27,7 +27,7 @@ class RecognizerController < ApplicationController
     if signed_in?
       digit = Digit.create!(digit_recognize: recognizeDigit(digitsChance), user_id: @current_user.id)
 
-      path = "#{Rails.root}/public/uploads/" + @current_user.id.to_s;
+      path = "#{Rails.root}/app/assets/images/digits/" + @current_user.id.to_s;
       save path, digit.id, params[:data_uri]
     end
 
