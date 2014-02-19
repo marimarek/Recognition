@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+a {
+    text-decoration: none;
+}
+
 canvas {
     border: 1px solid #ccc;
     margin: 0px;
@@ -27,9 +31,14 @@ body {
     margin-left: auto;
     margin-right: auto
 }
+
 footer {
     text-align: right;
     margin-top: 20px;
+}
+
+header {
+    margin-bottom: 20px;
 }
 
 .site-title {
@@ -53,4 +62,36 @@ footer {
 #history{
     margin-left: auto;
     margin-right: auto;
+}
+
+#singUp{
+    color: #c8c8c8;
+    font-size: 0.8em;
+    margin: 0;
+}
+
+.login-input {
+    font-size: 0.9em;
+    width: 100px;
+    height: 12px;
+}
+
+.error{
+    font-size: 1.2em;
+    margin: 4px;
+    color: red;
+}
+
+#menu {
+    font-size: 1.4em;
+}
+
+#errorExplanation {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f0f0f0;
 }

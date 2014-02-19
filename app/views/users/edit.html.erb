@@ -1,0 +1,11 @@
+<% provide(:title, 'Settings') %>
+
+<h1>Settings</h1>
+Name: <%= @current_user.name %>
+
+<%= form_tag user_delete_path do %>
+    <div><%= label_tag :password %></div>
+    <div><%= password_field_tag :password%></div>
+
+    <%= submit_tag "Delete", :confirm => "Are you sure ?"%>
+<% end %>

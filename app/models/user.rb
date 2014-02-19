@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :digits, dependent: :destroy
+  has_many :digits, dependent: :delete_all
 
   before_save { name.downcase! }
 

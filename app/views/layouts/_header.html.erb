@@ -1,8 +1,22 @@
 <header>
-  <p class="site-title">HANDWRITTEN DIGITS RECOGNIZER SYSTEM</p>
+  <%= link_to raw("<p class='site-title'>HANDWRITTEN DIGITS RECOGNIZER SYSTEM</p>"), root_url %>
   <% if signed_in? %>
-    <%= link_to "Sign out", signout_path, method: "delete" %>
+    <div id="menu">
+        <%= link_to "History", history_path%>
+        <%= link_to "Settings", settings_path %>
+        <%= link_to "Sign out", signout_path, method: "delete" %>
+    </div>
   <% else %>
-    <%= link_to "Sign in", signin_path%>
+      <%= form_for(:session, url: sessions_path) do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name, :class => "login-input" %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password, :class => "login-input"%>
+
+          <%= f.submit "Sign in"%>
+      <% end %>
+
+      <p id="singUp">New user? <%= link_to "Sign up now!", signup_path %></p>
   <% end %>
 </header>

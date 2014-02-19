@@ -7,7 +7,8 @@ var canvas;
 var context;
 var paint;
 
-$(function () {
+var ready = function() {
+    prepareCanvas();
 
     $('#canvas').mousedown(function(e){
         paint = true;
@@ -82,7 +83,11 @@ $(function () {
 
         });
     });
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+
 
 function prepareCanvas()
 {

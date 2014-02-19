@@ -1,6 +1,18 @@
-All: <%= Digit.count %>
-Correct: <%= Digit.where('digit_recognize = digit_user_marked').count %>
-Fail: <%= Digit.where('digit_recognize != digit_user_marked').count %>
+<% provide(:title, 'History') %>
+
+<%= link_to "All:", history_path %> <%= @all %>
+<%= link_to "Correct:", correct_path %> <%= @correct %>
+<% if @all != 0 %>
+    (<%= (100.0 * @correct / @all).round(1) %>%)
+<% end %>
+<%= link_to "Fail:", fail_path %> <%= @fail %>
+<% if @all != 0 %>
+    (<%= (100.0 * @fail / @all).round(1) %>%)
+<% end %>
+<%= link_to "Unmarked:", unmarked_path %> <%= @unmarked %>
+<% if @all != 0 %>
+    (<%= (100.0 * @unmarked / @all).round(1) %>%)
+<% end %>
 
 <table id="history">
   <tbody>
@@ -15,6 +27,7 @@ Fail: <%= Digit.where('digit_recognize != digit_user_marked').count %>
   <% end %>
   </tbody>
 </table>
+
 <%
    page = params[:page].to_i
    last_page = Digit.where(user_id: @current_user.id).count()/15 + 1

@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20140212155110) do
 
   create_table "digits", force: true do |t|
-    t.string   "file_path"
     t.integer  "digit_recognize"
     t.integer  "digit_user_marked"
     t.integer  "user_id"

@@ -1,15 +1,19 @@
 DigitsRecognizer::Application.routes.draw do
 
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create, :edit, :destroy, :update]
+  resources :sessions, only: [:create, :destroy]
   resources :digits, only: [:history, :destroy, :mark]
 
   root "recognizer#index"
   match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/user/delete', to: 'users#destroy',     via: 'post'
+  match '/settings', to: 'users#edit',           via: 'get'
   match '/digit/delete', to: 'digits#destroy',  via: 'delete'
   match '/history',  to: 'digits#history',      via: 'get'
+  match '/correct',  to: 'digits#correct',      via: 'get'
+  match '/fail',  to: 'digits#fail',            via: 'get'
+  match '/unmarked',  to: 'digits#unmarked',    via: 'get'
   match '/mark', to: 'digits#mark',             via: 'get'
   post "recognizer/recognize"
   # The priority is based upon order of creation: first created -> highest priority.

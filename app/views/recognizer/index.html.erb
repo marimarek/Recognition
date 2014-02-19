@@ -1,3 +1,9 @@
+<% content_for :javascript_includes do %>
+    <%= javascript_include_tag "recognizer.js" %>
+<% end %>
+
+<% provide(:title, 'Handwritten digits recognizer') %>
+
 <div id="canvasDiv">
   <p>Draw digit and click send to get prediction.</p>
   <canvas id="canvas" width=200 height=200></canvas>
@@ -10,5 +16,3 @@
   <% end %>
   <br/>
 </div>
-
-<%= javascript_tag "prepareCanvas()" %>
