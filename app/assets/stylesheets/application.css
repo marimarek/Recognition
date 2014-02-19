@@ -15,7 +15,9 @@
 canvas {
     border: 1px solid #ccc;
     margin: 0px;
-    padding: 0px;}
+    padding: 0px;
+}
+
 #canvasDiv {
     text-align: center;
 }
@@ -35,4 +37,20 @@ footer {
     font-family: Rockwell, Consolas, "Courier New", Courier, monospace;
     font-size: 2.3em;
     margin: 0;
+}
+
+.digitImg{
+    border: 1px solid #ccc;
+    margin: 0px;
+    padding: 0px;
+}
+
+.digit{
+    margin: 1px;
+    padding: 3px;
+}
+
+#history{
+    margin-left: auto;
+    margin-right: auto;
 }

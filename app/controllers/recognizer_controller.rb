@@ -36,11 +36,11 @@ class RecognizerController < ApplicationController
 
   private
     def recognizeDigit(digitsChance)
-      digit = 0
-      digitChance = digitsChance[0]
-      for i in 1..9
+      digit = -1
+      digitChance = 0
+      for i in 0..9
         if digitsChance[i] > digitChance
-          digit = 9
+          digit = i
           digitChance = digitsChance[i]
         end
       end
